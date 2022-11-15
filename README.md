@@ -1,4 +1,10 @@
-# USC CSCI 201 FinalProject
+# USC CSCI 201 FinalProject Fall 2022
+
+## Professor
+Pr. Marco Papa
+
+## TA
+Mehak Bhatia
 
 ## Contributors:
 <ul>
