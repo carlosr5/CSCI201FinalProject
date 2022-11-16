@@ -1,8 +1,8 @@
 import java.util.Collections;
 
-import javax.websocket.*;
+import javax.websocket.server.ServerEndpoint;
 
-@ServerEndpoint()
+@ServerEndpoint("/chatroomServerEndpoint")
 public class ChatroomServerEndpoint {
 
 }
