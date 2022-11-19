@@ -4,7 +4,9 @@ let socket = new WebSocket("ws://localhost:8080/CSCI201_Final_Project/chatroomSe
 
 // Listening for a message to be sent from the client
 socket.addEventListener('message', (message) => {
-    let userMessage = message.data;
+    let jsonData = JSON.parse(message.data);
+    let userMessage = jsonData.message;
+    let users = jsonData.users;
 
     // Output the JSON to the console to see the structure that it has
     if (userMessage != null) {
@@ -12,9 +14,23 @@ socket.addEventListener('message', (message) => {
         messageTextBox.value += userMessage + '\n';
         // Output each appropriately depending on the HTML structure
     }
+    if (users != null) {
+        usersTextArea.value = "";
+
+        let i = 0;
+        while (i < users.length) {
+            usersTextArea.value += users[i++] + '\n';
+        }
+    }
 });
 
 function sendMessage() {
     socket.send(messageText.value);
     messageText.value = "";
 }
+
+window.addEventListener('beforeunload', (event) => {
+    // Define closing function to be empty so that we can just close the socket for the individual person
+    socket.onclose = function () { };
+    socket.close();
+})
