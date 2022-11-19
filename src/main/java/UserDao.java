@@ -11,8 +11,8 @@ import java.security.NoSuchAlgorithmException;
 public class UserDao {
 	public boolean registerUser(User user) throws ClassNotFoundException {
         String INSERT_USERS_SQL = "INSERT INTO users" +
-            "  (displayname, email, hashPass) VALUES " +
-            " ( ?, ?, ?);";
+            "  (firstName, lastName, displayname, email, hashPass) VALUES " +
+            " ( ?, ?, ?, ?, ?);";
 
         int result = 0;
         //System.out.println("Received Information");
@@ -24,8 +24,10 @@ public class UserDao {
         	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/groupprojtest?user=root&password=root");
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
-            preparedStatement.setString(1, user.getUsername());
-            preparedStatement.setString(2, user.getEmail());
+            preparedStatement.setString(1, user.getFirst());
+            preparedStatement.setString(2, user.getLast());
+            preparedStatement.setString(3, user.getUsername());
+            preparedStatement.setString(4, user.getEmail());
             String plaintextPass = user.getPassword();
             MessageDigest md = MessageDigest.getInstance("MD5");
 
@@ -43,7 +45,7 @@ public class UserDao {
 
             // Get complete hashed password in hex format
             hashedPassword = sb.toString();
-            preparedStatement.setString(3, hashedPassword);
+            preparedStatement.setString(5, hashedPassword);
 
             System.out.println(preparedStatement);
             // Step 3: Execute the query or update query
@@ -104,10 +106,14 @@ public class UserDao {
             ArrayList<User> matchUsers = new ArrayList<User>();
             while(rs.next())
             {
+            	String first = rs.getString("firstName");
+            	String last = rs.getString("lastName");
             	String uname = rs.getString("displayname");
             	String email = rs.getString("email");
             	String hashPass = rs.getString("hashPass");
-            	matchUsers.add(new User(uname,email,hashPass));
+            	User temp = new User(first, last, uname,email,hashPass);
+            	temp.setUID(Integer.parseInt(rs.getString("userID")));
+            	matchUsers.add(temp);
             }
             
             System.out.println(matchUsers.size());

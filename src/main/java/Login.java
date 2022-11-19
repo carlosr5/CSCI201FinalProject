@@ -51,7 +51,10 @@ public class Login extends HttpServlet {
 		if(result)
 		{
 			HttpSession session = request.getSession();
-			session.setAttribute("user", matchUsers.get(0));
+			session.setAttribute("username", matchUsers.get(0).getUsername());
+			session.setAttribute("firstName", matchUsers.get(0).getFirst());
+			session.setAttribute("lastName", matchUsers.get(0).getLast());
+			session.setAttribute("UID", matchUsers.get(0).getUID());
 			response.sendRedirect("profile");
 		}
 		else

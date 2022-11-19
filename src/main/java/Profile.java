@@ -23,10 +23,10 @@ public class Profile extends HttpServlet {
           
         HttpSession session=request.getSession(false);  
         if(session!=null){  
-        String name=(String)session.getAttribute("username");  
-          
-        out.print("Hello, "+name+" Welcome to Profile");
-        out.print("<br/><a href=\"logout\">Logout</a>");
+	        String uname=(String)session.getAttribute("username");  
+	          
+	        out.print("Hello, "+uname+". Welcome to the profile page. Your UID is: " + session.getAttribute("UID"));
+	        //out.print("<br/><a href=\"logout\">Logout</a>");
         }  
         else{  
             request.getRequestDispatcher("home.html").include(request, response);  

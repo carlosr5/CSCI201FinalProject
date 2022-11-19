@@ -33,6 +33,8 @@ public class Register extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
 		String uname=request.getParameter("username");
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");
@@ -53,7 +55,7 @@ public class Register extends HttpServlet {
 		}
 		else
 		{
-			User user = new User(uname, email, password);
+			User user = new User(firstName, lastName,uname, email, password);
 			UserDao udao=new UserDao();
 			boolean result = true;
 			try {

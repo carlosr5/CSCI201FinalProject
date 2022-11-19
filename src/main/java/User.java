@@ -5,8 +5,12 @@ public class User implements Serializable{
     private String email;
     private String password;
     private int UID;
-    public User(String uname, String email, String password)
+    private String firstName;
+    private String lastName;
+    public User(String first, String last, String uname, String email, String password)
     {
+    	firstName = first;
+    	lastName = last;
     	username = uname;
     	this.email = email;
     	this.password = password;
@@ -15,6 +19,18 @@ public class User implements Serializable{
     {
     	this.email = email;
     	this.password = password;
+    }
+    public String getName()
+    {
+    	return lastName + ", " + firstName;
+    }
+    public String getFirst()
+    {
+    	return firstName;
+    }
+    public String getLast()
+    {
+    	return lastName;
     }
     public String getUsername() {
         return username;

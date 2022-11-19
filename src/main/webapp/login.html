@@ -8,9 +8,16 @@
 				background-color:lightblue;
 			}
 			form{
-				background-color:#EDC138;
-				width:250px;
+				background-color:#FDCFA8;
+				width:400px;
 				padding:20px;
+			}
+			div{
+				margin-bottom:10px;
+			}
+			label {
+				display:inline-block;
+				width: 150px;
 			}
 		</style>
 		
@@ -21,15 +28,15 @@
 	<div align="left">
         <h1>Welcome Back to Your Food Dreams!</h1>
         <form action="login" method="post">
-        	<label for="email">Email</label>
-            <input type="text" name="email" placeholder="Email" REQUIRED/>
-            <br/>
-            <br/>
-            <label for="password">Password</label>
-            <input type="password" name="password" placeholder="Password"REQUIRED/>
-            <br/>
+        	<div>
+	        	<label for="email">Email</label>
+	            <input type="text" name="email" placeholder="Email" REQUIRED/>
+        	</div>
+        	<div>
+	            <label for="password">Password</label>
+	            <input type="password" name="password" placeholder="Password"REQUIRED/>
+        	</div>
             <input type="submit" value="Login" />
-            <br/>
 	        <label>Don't have an account?</label>
 	        <a href="register.html">Sign Up Here</a>
         </form>
