@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+		
+</head>
+<body>
+<a href="home.html">Home</a>
+<a href="login.html">Log In</a>
+	<a href="Logout">Logout</a>
+	<a href="Profile">Profile</a>
+	<button type ="submit" formaction="Profile">Profile?</button>
+	<div align="center">
+        <h1>User Sign-Up Form</h1>
+        <form action="register" method="post">
+            <table style="width: 80%">
+                <tr>
+                    <td>Username</td>
+                    <td><input type="text" name="username" REQUIRED/></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" REQUIRED/></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{10,}$" REQUIRED/></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password</td>
+                    <td><input type="password" name="confirmpassword" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{10,}$" REQUIRED/></td>
+                </tr>
+            </table>
+            <input type="submit" value="submit" />
+        </form>
+    </div>
+</body>
+</html>
