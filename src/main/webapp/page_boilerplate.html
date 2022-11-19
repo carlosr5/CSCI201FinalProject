@@ -8,12 +8,14 @@
     <title>ReSCipes!</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- The component will be downloaded in parallel to parsing the page, and executed after the page has finished parsing -->
+    <script src="components/header.js" type="text/javascript" defer></script>
+    <script src="components/footer.js" type="text/javascript" defer></script>
 </head>
 
 <body>
-    <textarea id="messageTextBox" readonly="readonly" rows="10" cols="45"></textarea><br />
-    <input type="text" id="messageText">
-    <input type="button" value="Send" onclick="sendMessage()">
+    <!-- Your page goes here! -->
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
