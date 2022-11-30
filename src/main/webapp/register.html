@@ -3,14 +3,18 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Create User</title>
+		<link rel="font-style" href="https://fonts.googleapis.com/css?family=Courgette">
+		<link rel="stylesheet" href="general_stylesheet.css">
 		<style> 
 			body{
-				background-color:lightblue;
+				background-color:lightcyan;
+				font-size:20px;
 			}
 			form{
-				background-color:#FDCFA8;
-				width:400px;
+				background-color:peachpuff;
+				width:900px;
 				padding:20px;
+				border-radius: 15px;
 			}
 			div{
 				margin-bottom:10px;
@@ -19,18 +23,37 @@
 				display:inline-block;
 				width: 150px;
 			}
+			#submit{
+				background-color:#9999FF;
+				width:100px;
+				height:30px;
+				font-size:20px;
+				border:none;
+			}
+			#password_instruction{
+				color:slategrey;
+				text-align:center;
+				font-size:17.5px;
+			}
 		</style>
 </head>
 <body>
-<a href="home.html">Home</a>
-<a href="login.html">Log In</a>
-	<a href="Logout">Logout</a>
-	<a href="Profile">Profile</a>
-	<button type ="submit" formaction="Profile">Profile?</button>
-	<div align="left">
+	
+	<header>
+		<a id="ReSCipe" href="home.html"><strong>ReSCipe</strong></a>
+		<a class = "links" href="loggedout.html">Log out</a>
+		<a class = "links" href="register.html">Register</a>
+		<a class = "links" href="login.html">Login</a>
+		<a class = "links" href="account.html">Profile</a>
+		<a class = "links" href="chat.html">Chat Room</a>
+		<a class = "links" href="createrecipe.html">Create a Recipe</a>
+	</header>
+	
+	<div align="center">
         <h1>Create Your Account</h1>
         <form action="register" method="post">
         	<div>
+        		 <br/>
         		<label for="firstName">First Name</label>
         		<input type="text" name="firstName" REQUIRED/>
         	</div>
@@ -54,8 +77,10 @@
 	            <label for="confirmpassword">Re-Type Password</label>
 	            <input type="password" name="confirmpassword" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{10,}$" REQUIRED/>
             </div>
-            <p>Passwords must contain at least 1 uppercase letter, 1 lowercase letter, 1 number 0-9, and be at least 10 characters long.</p>
-            <input type="submit" value="submit" />
+            <p id="password_instruction">Passwords must contain at least 1 uppercase letter, 1 lowercase letter, 1 number 0-9, and be at least 10 characters long.</p>
+            <input id = "submit" type="submit" value="Sign Up!" />
+             <br/>
+              <br/>
         </form>
     </div>
 </body>

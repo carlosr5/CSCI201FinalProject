@@ -2,15 +2,18 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Insert title here</title>
+		<title>Login</title>
+		<link rel="stylesheet" href="general_stylesheet.css">
 		<style> 
 			body{
-				background-color:lightblue;
+				background-color:lightcyan;
+				font-size:20px;
 			}
 			form{
-				background-color:#FDCFA8;
-				width:400px;
+				background-color:peachpuff;
+				width:900px;
 				padding:20px;
+				border-radius: 15px;
 			}
 			div{
 				margin-bottom:10px;
@@ -19,16 +22,33 @@
 				display:inline-block;
 				width: 150px;
 			}
+			#submit{
+				background-color:#9999FF;
+				width:100px;
+				height:30px;
+				font-size:20px;
+				border:none;
+			}
 		</style>
 		
 </head>
 <body>
-	<a href="home.html">Home</a>
-	<a href="Profile">Profile</a>
-	<div align="left">
+	
+	<header>
+		<a id="ReSCipe" href="home.html"><strong>ReSCipe</strong></a>
+		<a class = "links" href="loggedout.html">Log out</a>
+		<a class = "links" href="register.html">Register</a>
+		<a class = "links" href="login.html">Login</a>
+		<a class = "links" href="account.html">Profile</a>
+		<a class = "links" href="chat.html">Chat Room</a>
+		<a class = "links" href="createrecipe.html">Create a Recipe</a>
+	</header>
+	
+	<div align="center">
         <h1>Welcome Back to Your Food Dreams!</h1>
         <form action="login" method="post">
         	<div>
+        		 <br/>
 	        	<label for="email">Email</label>
 	            <input type="text" name="email" placeholder="Email" REQUIRED/>
         	</div>
@@ -36,9 +56,14 @@
 	            <label for="password">Password</label>
 	            <input type="password" name="password" placeholder="Password"REQUIRED/>
         	</div>
-            <input type="submit" value="Login" />
+        	 <br/>
+            <input id="submit" type="submit" value="Login" />
+            <br/>
+            <br/>
 	        <label>Don't have an account?</label>
 	        <a href="register.html">Sign Up Here</a>
+	        <br/>
+	        <br/>
         </form>
     </div>
 </body>
