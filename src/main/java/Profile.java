@@ -25,7 +25,7 @@ public class Profile extends HttpServlet {
         if(session!=null){  
 	        String uname=(String)session.getAttribute("username");  
 	          
-	        out.print("Hello, "+uname+". Welcome to the profile page. Your UID is: " + session.getAttribute("UID"));
+	        out.print("<h1>Hello, "+uname+". Welcome to the profile page. Your UID is: " + session.getAttribute("UID") + "</h1>");
 	        //out.print("<br/><a href=\"logout\">Logout</a>");
         }  
         else{  

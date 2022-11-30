@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Add a Recipe</title>
+<link rel="stylesheet" href="AddRecipe.css">
+</head>
+
+<body>
+	<div class="header">
+
+	  ReSCipe
+	  <a href="homepage.htm" class="nav-link">HOME</a>
+	  <a href="myRecipes.htm" class="nav-link">My Recipes</a>
+	  <a href="Login.htm" class="nav-link">Log In</a>
+	</div>
+ 	<h1>Add Your Recipe</h1>
+ 
+	
+	<div class="form"> 
+	 	
+		<form name="AddServlet" method="GET" action="AddServlet">
+			<fieldset>
+				Recipe Name: <input type="text" name="name" required/><br/>
+				Description: <input type="text" name="des" required/><br/>
+				
+				<label for="img">Upload Recipe Image:</label><br>
+		  		<input type="file" id="img" name="img" accept="image/*"><br>
+		  		
+				<input type="radio" id="baked" name="dishType" value="BAKED">
+				<label for="baked">Baked</label><br>
+				<input type="radio" id="cooked" name="dishType" value="COOKED">
+				<label for="cooked">Cooked</label><br>
+				<label for="time">Enter Prep Time:</label>
+	  			<input type="text" id="prepTime" name="prepTime" placeholder="10" 
+	  			pattern="[0-9]{2}"></br>
+	  			<label for="time">Enter Cook Time:</label>
+	  			 		<input type="text" id="cookTime" name="cookTime" placeholder="15" 
+	  			pattern="[0-9]{2}"><br>
+	  			<label for="time">Enter Ingredients:</label>
+	  			 		<input type="text" id="ingredients" name="ingredients" placeholder="5 tomatoes, 2 onions"> 
+				<br>
+	 			<label for="time">Enter Steps:</label>
+	  			 		<input type="text" id="steps" name="steps" placeholder="Cut tomatoes, Dice onions"> 
+				<br>
+	 			<input type="submit" name="submit" value="Submit" />
+	 		</fieldset>
+	 </div>
+</body>
+</html>
