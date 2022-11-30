@@ -96,7 +96,7 @@ public class DetailsServlet extends HttpServlet {
 			}
 		}
 			
-		*/
+		
 	}
 
 }
