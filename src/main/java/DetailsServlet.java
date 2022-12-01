@@ -52,10 +52,10 @@ public class DetailsServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/RecipeManager?user=root&password=RamTiger25");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/recipemanager?user=" + Globals.user + "&password=" + Globals.pass);
 			st = conn.createStatement();
 
-			rs = st.executeQuery("SELECT * FROM AllRecipes WHERE AllRecipes.Name = " + "'" + queryName + "';");	
+			rs = st.executeQuery("SELECT * FROM recipes WHERE recipes.Name = " + "'" + queryName + "';");	
 			rs.next();
 			des = rs.getString("Description");
 			type = rs.getString("Type");

@@ -60,10 +60,10 @@ public class AddServlet extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				conn = DriverManager.getConnection("jdbc:mysql://localhost/RecipeManager?user=root&password=RamTiger25");
+				conn = DriverManager.getConnection("jdbc:mysql://localhost/recipemanager?user=" + Globals.user + "&password=" + Globals.pass);
 				st = conn.createStatement();
 
-				st.executeUpdate("INSERT INTO AllRecipes (Name, Description, Type, PrepTime, CookTime, Ingredients, Steps, ID, image)\nVALUES (" 
+				st.executeUpdate("INSERT INTO recipes (Name, Description, Type, PrepTime, CookTime, Ingredients, Steps, ID, image)\nVALUES (" 
 						+ "'" + name + "', '" +  des + "', '" 
 						+ type + "', '" + prepTime + "', '" + cookTime  
 						+ "', '" + ingredients  + "', '" + steps + "', '" + user + "', '" + imageURL + "');");
