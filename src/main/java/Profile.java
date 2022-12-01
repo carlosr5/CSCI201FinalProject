@@ -27,7 +27,7 @@ public class Profile extends HttpServlet {
 	        out.println("<script type=\"text/javascript\">"); 
 	        out.println("window.location.replace('account.html');");
 			out.println("</script>");
-	        out.print("<h1>Hello, "+uname+". Welcome to the profile page. Your UID is: " + session.getAttribute("UID") + "</h1>");
+	        //out.print("<h1>Hello, "+uname+". Welcome to the profile page. Your UID is: " + session.getAttribute("UID") + "</h1>");
 	        //out.print("<br/><a href=\"logout\">Logout</a>");
         }  
         else{  
