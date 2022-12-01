@@ -61,7 +61,7 @@ public class AddServlet extends HttpServlet {
 					+ type + "', '" + prepTime + "', '" + cookTime  
 					+ "', '" + ingredients  + "', '" + steps + "', '" + user + "', '" + imageURL + "');");
 			out.println("<script type=\"text/javascript\">"); 
-			out.println("window.location.replace('hoem.html');");
+			out.println("window.location.replace('home.html');");
 			out.println("</script>");
 			out.close();
 		} catch (SQLException sqle) {
