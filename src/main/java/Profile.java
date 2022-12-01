@@ -19,18 +19,23 @@ public class Profile extends HttpServlet {
     	//response.sendRedirect("account.html");
         response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
-        request.getRequestDispatcher("account.html").include(request, response);  
+        //request.getRequestDispatcher("account.html").include(request, response);  
           
         HttpSession session=request.getSession(false);  
         if(session!=null){  
 	        String uname=(String)session.getAttribute("username");  
-	          
+	        out.println("<script type=\"text/javascript\">"); 
+	        out.println("window.location.replace('account.html');");
+			out.println("</script>");
 	        out.print("<h1>Hello, "+uname+". Welcome to the profile page. Your UID is: " + session.getAttribute("UID") + "</h1>");
 	        //out.print("<br/><a href=\"logout\">Logout</a>");
         }  
         else{  
             request.getRequestDispatcher("home.html").include(request, response);  
-            out.print("<h1>Please login first!</h1>");  
+            out.println("<script type=\"text/javascript\">"); 
+			out.println("alert(\"Please login to view your profile\");"); 
+			out.println("</script>");
+			out.close();  
         }  
         out.close();  
     }  

@@ -37,10 +37,10 @@ public class AddServlet extends HttpServlet {
 		String type = request.getParameter("dishType");
 		String ingredients = request.getParameter("ingredients");
 		String steps = request.getParameter("steps");
-		
+		/*
 		out.println("Name: " + name);
 		out.println("Des: " + des);
-		out.println("Type: " + type);
+		out.println("Type: " + type);*/
 		
 		Connection conn = null;
 		Statement st = null;
@@ -60,7 +60,10 @@ public class AddServlet extends HttpServlet {
 					+ "'" + name + "', '" +  des + "', '" 
 					+ type + "', '" + prepTime + "', '" + cookTime  
 					+ "', '" + ingredients  + "', '" + steps + "', '" + user + "', '" + imageURL + "');");
-		
+			out.println("<script type=\"text/javascript\">"); 
+			out.println("window.location.replace('hoem.html');");
+			out.println("</script>");
+			out.close();
 		} catch (SQLException sqle) {
 			System.out.println(sqle.getMessage());
 			
