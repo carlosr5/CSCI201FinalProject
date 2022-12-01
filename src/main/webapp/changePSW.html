@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Change Password</title>
+<link rel="stylesheet" href="general_stylesheet.css">
+	<style>
+		body{
+				background-color:lightcyan;
+				font-size:20px;
+			}
+			form{
+				background-color:peachpuff;
+				width:900px;
+				padding:20px;
+				border-radius: 15px;
+			}
+			div{
+				margin-bottom:10px;
+			}
+			label {
+				display:inline-block;
+				width: 150px;
+			}
+			#submit{
+				background-color:#9999FF;
+				width:100px;
+				height:30px;
+				font-size:20px;
+				border:none;
+			}
+	</style>
+</head>
+<body>
+	<header>
+		<a id="ReSCipe" href="home.html"><strong>ReSCipe</strong></a>
+		<a class = "links" href="loggedout.html">Log out</a>
+		<a class = "links" href="register.html">Register</a>
+		<a class = "links" href="login.html">Login</a>
+		<a class = "links" href="userprofile.html">Profile</a>
+		<a class = "links" href="index.html">Chat Room</a>
+		<a class = "links" href="AddRecipe.html">Create a Recipe</a>
+	</header>
+	
+	<div align="center">
+        <h1>Enter your new password</h1>
+        <form action="changePSW" method="post">
+        	<div>
+        		 <br/>
+	        	<label for="password">New Password</label>
+	            <input type="text" name="password"/>
+        	</div>
+        	<div>
+	            <label for="password">Confirm Password</label>
+	            <input type="password" name="confirmPassword"/>
+        	</div>
+        	 <br/>
+            <input id="submit" type="submit" value="Submit" />
+            <br/>
+	        <br/>
+        </form>
+    </div>
+
+</body>
+</html>
