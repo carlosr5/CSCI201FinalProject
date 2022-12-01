@@ -18,8 +18,8 @@ public class Profile extends HttpServlet {
     	//System.out.println("got request?");
     	//response.sendRedirect("account.html");
         response.setContentType("text/html");  
-        PrintWriter out=response.getWriter();  
         //request.getRequestDispatcher("account.html").include(request, response);  
+        PrintWriter out=response.getWriter();  
           
         HttpSession session=request.getSession(false);  
         if(session!=null){  
@@ -31,11 +31,11 @@ public class Profile extends HttpServlet {
 	        //out.print("<br/><a href=\"logout\">Logout</a>");
         }  
         else{  
-            request.getRequestDispatcher("home.html").include(request, response);  
             out.println("<script type=\"text/javascript\">"); 
-			out.println("alert(\"Please login to view your profile\");"); 
+			out.println("alert(\"Please login to view your profile\");");
+			out.println("window.location.replace('home.html');");
 			out.println("</script>");
-			out.close();  
+			out.close(); 
         }  
         out.close();  
     }  
