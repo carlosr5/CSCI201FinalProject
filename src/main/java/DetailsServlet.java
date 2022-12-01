@@ -86,41 +86,40 @@ public class DetailsServlet extends HttpServlet {
 		}
 
 		out.println(docType +
-				"<html>\n" +
-				"<head><title>" + queryName + "</title></head>\n" +
-				"<link rel=\"stylesheet\" href=\"RecipeDetails.css\">" + 
-				"<body bgcolor = \"#f0f0f0\">\n" +
-				"<header>" + 
-				"<a id=\"ReSCipe\" href=\"home.html\"><strong>ReSCipe</strong></a>\n" + 
-				"<a class = \"links\" href=\"loggedout.html\">Log out</a>" +
-				"<a class = \"links\" href=\"register.html\">Register</a>" +
-				"<a class = \"links\" href=\"login.html\">Login</a>" + 
-				"<a class = \"links\" href=\"account.html\">Profile</a>" + 
-				"<a class = \"links\" href=\"chat.html\">Chat Room</a>" + 
-				"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" + 
-				"</header>\n" +
-				"<h1 align = \"center\">" + queryName + "</h1>\n" +
-				"<ul>\n" +
-				"<img src=\"" + img + "\" alt=\"" + queryName + "\"></b>\n" +  
-				" <li><b>Description: </b>\n"
-				+ des + "\n" +
-				"  <li><b>Type: </b>\n"
-				+ type + "\n" +
-				"  <li><b>Prep Time: </b>\n"
-				+ prepTime + " minutes\n" +
-				"  <li><b>Cook Time: </b> "
-				+ cookTime + " minutes\n" +
-				"  <li><b>Ingredients: </b>\n"
-				+ ingred + "\n" +
-				"  <li><b>Steps: </b>\n"
-				+ steps + "\n" +
-
+		         "<html>\n" +
+		            "<head><title>" + queryName + "</title></head>\n" +
+		            "<link rel=\"stylesheet\" href=\"RecipeDetails.css\">" + 
+		            "<body bgcolor = \"#f0f0f0\">\n" +
+		            "<header>" + 
+			    		"<a id=\"ReSCipe\" href=\"home.html\"><strong>ReSCipe</strong></a>\n" + 
+			    		"<a class = \"links\" href=\"loggedout.html\">Log out</a>" +
+			    		"<a class = \"links\" href=\"register.html\">Register</a>" +
+			    		"<a class = \"links\" href=\"login.html\">Login</a>" + 
+			    		"<a class = \"links\" href=\"account.html\">Profile</a>" + 
+			    		"<a class = \"links\" href=\"chat.html\">Chat Room</a>" + 
+			    		"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" + 
+		    		"</header>\n" +
+		               "<h1 align = \"center\">" + queryName + "</h1>\n" +
+		               "<ul>\n" +
+		               "<img src=\"" + img + "\" alt=\"" + queryName + "\"></b>\n" +  
+		                  " <li><b>Description: </b>\n"
+		                  + des + "\n" +
+		                  "  <li><b>Type: </b>\n"
+		                  + type + "\n" +
+		                  "  <li><b>Prep Time: </b>\n"
+		                  + prepTime + " minutes\n" +
+		                  "  <li><b>Cook Time: </b> "
+		                  + cookTime + " minutes\n" +
+		                  "  <li><b>Ingredients: </b>\n"
+		                  + ingred + "\n" +
+		                  "  <li><b>Steps: </b>\n"
+		                  + steps + "\n" +
+		            
 		               "</ul>\n" +
-		               "</body>" + 
-				"</html>");
-		out.flush();
-		out.close();
-
+		            "</body>" + 
+		         "</html>");
+		  out.flush();
+		  out.close();
 	}
 
 }

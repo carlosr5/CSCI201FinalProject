@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class DetailsServlet
@@ -41,7 +42,12 @@ public class MyRecipesServlet extends HttpServlet {
 		
 		String img = "";
 		String name = "";
-		String ID = "1";
+		HttpSession session = request.getSession(false);
+		int ID = -1;
+		if(session != null)
+		{
+			ID = (int)session.getAttribute("UID");
+		}
 		
 	    String result = new String(docType +
 		         "<html>\n" +
@@ -70,8 +76,14 @@ public class MyRecipesServlet extends HttpServlet {
 				
 			//if (ID != null && ID.length() > 0) { }
 				
-			
-			rs = st.executeQuery("SELECT * FROM recipes WHERE recipes.ID = " + "'" + ID + "';");	
+			if(ID == -1)
+			{
+				rs = st.executeQuery("SELECT * FROM recipes ;");	
+			}
+			else
+			{				
+				rs = st.executeQuery("SELECT * FROM recipes WHERE recipes.ID = " + "'" + ID + "';");	
+			}
 			while (rs.next()) {
 				img = rs.getString("image");
 				name = rs.getString("name");
