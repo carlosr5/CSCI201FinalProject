@@ -13,6 +13,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
+=======
+import javax.servlet.http.HttpSession;
+>>>>>>> 16429356c0b38e61414712e46b5316166791b3cc
 
 /**
  * Servlet implementation class DetailsServlet
@@ -39,19 +43,35 @@ public class MyRecipesServlet extends HttpServlet {
 		Statement st = null;
 		ResultSet rs = null;
 		
+<<<<<<< HEAD
 		String name = "";
 		String rec_ing = "";
+=======
+		String img = "";
+		String name = "";
+		HttpSession session = request.getSession(false);
+		int ID = -1;
+		if(session != null)
+		{
+			ID = (int)session.getAttribute("UID");
+		}
+>>>>>>> 16429356c0b38e61414712e46b5316166791b3cc
 		
 	    String result = new String(docType +
 		         "<html>\n" +
 		            "<head><title>My Recipes</title></head>\n" +
+<<<<<<< HEAD
 		            "<link rel=\"stylesheet\" href=\"general_stylesheet.css\">" + 
+=======
+		            "<link rel=\"stylesheet\" href=\"RecipeDetails.css\">" + 
+>>>>>>> 16429356c0b38e61414712e46b5316166791b3cc
 		            "<body bgcolor = \"#f0f0f0\">\n" +
 		            "<header>" + 
 			    		"<a id=\"ReSCipe\" href=\"home.html\"><strong>ReSCipe</strong></a>\n" + 
 			    		"<a class = \"links\" href=\"loggedout.html\">Log out</a>" +
 			    		"<a class = \"links\" href=\"register.html\">Register</a>" +
 			    		"<a class = \"links\" href=\"login.html\">Login</a>" + 
+<<<<<<< HEAD
 			    		"<a class = \"links\" href=\"userprofile.html\">Profile</a>" + 
 			    		"<a class = \"links\" href=\"chat.html\">Chat Room</a>" + 
 			    		"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" + 
@@ -75,6 +95,12 @@ public class MyRecipesServlet extends HttpServlet {
 	
 	    		);
 	    
+=======
+			    		"<a class = \"links\" href=\"account.html\">Profile</a>" + 
+			    		"<a class = \"links\" href=\"chat.html\">Chat Room</a>" + 
+			    		"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" + 
+		    		"</header>\n");
+>>>>>>> 16429356c0b38e61414712e46b5316166791b3cc
 		
 		try {
 			try {
@@ -83,11 +109,16 @@ public class MyRecipesServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+<<<<<<< HEAD
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/RecipeManager?user=root&password=RamTiger25");
+=======
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/recipemanager?user=" + Globals.user + "&password=" + Globals.pass);
+>>>>>>> 16429356c0b38e61414712e46b5316166791b3cc
 			st = conn.createStatement();
 				
 			//if (ID != null && ID.length() > 0) { }
 				
+<<<<<<< HEAD
 			
 			rs = st.executeQuery("SELECT * FROM AllRecipes WHERE AllRecipes.name = " + "'" + name + "';");	
 			while (rs.next()) {
@@ -102,6 +133,23 @@ public class MyRecipesServlet extends HttpServlet {
 				rec_ing = rs.getString("rec_ing");
 				name = rs.getString("name");
 				result +=  "<h1 align = \"center\">" + name + "</h1>\n";
+=======
+			if(ID == -1)
+			{
+				rs = st.executeQuery("SELECT * FROM recipes ;");	
+			}
+			else
+			{				
+				rs = st.executeQuery("SELECT * FROM recipes WHERE recipes.ID = " + "'" + ID + "';");	
+			}
+			while (rs.next()) {
+				img = rs.getString("image");
+				name = rs.getString("name");
+				result +=  "<h1 align = \"center\">" + name + "</h1>\n" +
+					   "<ul>\n" +
+					   "<img src=\"" + img + "\" alt=\"" + name + "\"></b>\n" +  		            
+					   "</ul>\n"; 
+>>>>>>> 16429356c0b38e61414712e46b5316166791b3cc
 				
 			}
 		   

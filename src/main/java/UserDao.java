@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 public class UserDao {
-	public boolean registerUser(User user) throws ClassNotFoundException {
+	public boolean registerUser(User user) {
         String INSERT_USERS_SQL = "INSERT INTO users" +
             "  (firstName, lastName, displayname, email, hashPass) VALUES " +
             " ( ?, ?, ?, ?, ?);";
@@ -61,6 +61,9 @@ public class UserDao {
             // process sql exception
             printSQLException(e);
         } catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
