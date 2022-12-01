@@ -58,12 +58,7 @@ public class Register extends HttpServlet {
 			User user = new User(firstName, lastName,uname, email, password);
 			UserDao udao=new UserDao();
 			boolean result = true;
-			try {
-				result = udao.registerUser(user);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			result = udao.registerUser(user);
 			if(result)
 			{
 				response.sendRedirect("registered.html");
