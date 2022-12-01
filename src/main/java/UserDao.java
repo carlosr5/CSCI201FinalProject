@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 public class UserDao {
-	public boolean registerUser(User user) throws ClassNotFoundException {
+	public boolean registerUser(User user) {
         String INSERT_USERS_SQL = "INSERT INTO users" +
             "  (firstName, lastName, displayname, email, hashPass) VALUES " +
             " ( ?, ?, ?, ?, ?);";
@@ -21,7 +21,7 @@ public class UserDao {
 
         try {
         	Class.forName("com.mysql.jdbc.Driver");
-        	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/groupprojtest?user=root&password=root");
+        	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/recipemanager?user=" + Globals.user + "&password=" + Globals.pass);
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
             preparedStatement.setString(1, user.getFirst());
@@ -63,6 +63,9 @@ public class UserDao {
         } catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
         
         return true;
@@ -77,7 +80,7 @@ public class UserDao {
         String hashedPassword = null;
         try {
         	Class.forName("com.mysql.jdbc.Driver");
-        	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/groupprojtest?user=root&password=root");
+        	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/recipemanager?user=" + Globals.user + "&password=" + Globals.pass);
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(FIND_USERS_SQL);
             preparedStatement.setString(1, user.getEmail());

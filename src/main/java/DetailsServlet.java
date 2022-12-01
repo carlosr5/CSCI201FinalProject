@@ -20,42 +20,31 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/DetailsServlet")
 public class DetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
-//    public AddServlet() {
-//        super();
-//        // TODO Auto-generated constructor stub
-//    }
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	      response.setContentType("text/html");
-	      /*
-	      PrintWriter out = response.getWriter();
-	      String title = "Reading Checkbox Data";
-	      String docType =
-	         "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
 
-	      out.println(docType +
-	         "<html>\n" +
-	            "<head><title>" + title + "</title></head>\n" +
-	            "<body bgcolor = \"#f0f0f0\">\n" +
-	               "<h1 align = \"center\">" + title + "</h1>\n" +
-	               "<ul>\n" +
-	                  "  <li><b>Maths Flag : </b>: "
-	                  + request.getParameter("maths") + "\n" +
-	                  "  <li><b>Physics Flag: </b>: "
-	                  + request.getParameter("physics") + "\n" +
-	                  "  <li><b>Chemistry Flag: </b>: "
-	                  + request.getParameter("chemistry") + "\n" +
-	               "</ul>\n" +
-	            "</body>" + 
-	         "</html>");
-		*/
-	      
+	//    public AddServlet() {
+	//        super();
+	//        // TODO Auto-generated constructor stub
+	//    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		String docType =
+				"<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
+
 		Connection conn = null;
 		Statement st = null;
 		ResultSet rs = null;
-		int user = 1; 
-	
+		String des = "";
+		String type = "";
+		String prepTime = "";
+		String cookTime = "";
+		String ingred = "";
+		String steps = "";
+		String img = "";
+		//String queryName = request.getParameter("name");
+		String queryName = "Cookies";
+
 		try {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
@@ -63,23 +52,23 @@ public class DetailsServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/RecipeManager?user=root&password=RamTiger25");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/recipemanager?user=" + Globals.user + "&password=" + Globals.pass);
 			st = conn.createStatement();
-			String queryName = "kwmdqd";
-			rs = st.executeQuery("SELECT * from AllRecipes, Users WHERE Recipes.name = " + queryName + " AND Users.ID == Recipes.ID");	
-			
-			String des = rs.getString("des");
-			String type = rs.getString("type");
-			String prepTime = rs.getString("prepTime");
-			String cookTime = rs.getString("cookTime");
-			String ingred = rs.getString("ingredients");
-			String steps = rs.getString("steps");
-			
-			System.out.print("<h2>" + des + "</h2>");
-			
+
+			rs = st.executeQuery("SELECT * FROM recipes WHERE recipes.Name = " + "'" + queryName + "';");	
+			rs.next();
+			des = rs.getString("Description");
+			type = rs.getString("Type");
+			prepTime = rs.getString("PrepTime");
+			cookTime = rs.getString("CookTime");
+			ingred = rs.getString("Ingredients");
+			steps = rs.getString("Steps");
+			img = rs.getString("image");
+
+
 		} catch (SQLException sqle) {
 			System.out.println(sqle.getMessage());
-			
+
 		} finally {
 			try {
 				if (rs != null) {
@@ -95,8 +84,43 @@ public class DetailsServlet extends HttpServlet {
 				System.out.println(sqle.getMessage());
 			}
 		}
-			
-		
+
+		out.println(docType +
+				"<html>\n" +
+				"<head><title>" + queryName + "</title></head>\n" +
+				"<link rel=\"stylesheet\" href=\"RecipeDetails.css\">" + 
+				"<body bgcolor = \"#f0f0f0\">\n" +
+				"<header>" + 
+				"<a id=\"ReSCipe\" href=\"home.html\"><strong>ReSCipe</strong></a>\n" + 
+				"<a class = \"links\" href=\"loggedout.html\">Log out</a>" +
+				"<a class = \"links\" href=\"register.html\">Register</a>" +
+				"<a class = \"links\" href=\"login.html\">Login</a>" + 
+				"<a class = \"links\" href=\"account.html\">Profile</a>" + 
+				"<a class = \"links\" href=\"chat.html\">Chat Room</a>" + 
+				"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" + 
+				"</header>\n" +
+				"<h1 align = \"center\">" + queryName + "</h1>\n" +
+				"<ul>\n" +
+				"<img src=\"" + img + "\" alt=\"" + queryName + "\"></b>\n" +  
+				" <li><b>Description: </b>\n"
+				+ des + "\n" +
+				"  <li><b>Type: </b>\n"
+				+ type + "\n" +
+				"  <li><b>Prep Time: </b>\n"
+				+ prepTime + " minutes\n" +
+				"  <li><b>Cook Time: </b> "
+				+ cookTime + " minutes\n" +
+				"  <li><b>Ingredients: </b>\n"
+				+ ingred + "\n" +
+				"  <li><b>Steps: </b>\n"
+				+ steps + "\n" +
+
+		               "</ul>\n" +
+		               "</body>" + 
+				"</html>");
+		out.flush();
+		out.close();
+
 	}
 
 }

@@ -19,22 +19,29 @@ public class Logout extends HttpServlet {
             //response.setContentType("text/html");  
             //request.getRequestDispatcher("link.html").include(request, response);  
             System.out.println("Logging Out");
+            PrintWriter out = response.getWriter();
             HttpSession session=request.getSession(false);
             if(session != null)
             {
             	session.invalidate();  
-            	response.sendRedirect("loggedout.html");
+            	out.println("<script type=\"text/javascript\">"); 
+    			out.println("alert(\"You have successfully logged out.\");");
+    			out.println("window.location.replace('home.html');");
+    			out.println("</script>");
+    			out.close(); 
             }
             else
             {
-            	PrintWriter out = response.getWriter();
             	/*
             	request.getRequestDispatcher("home.html").include(request, response);
             	out.println("<h1>No Account Logged In</h1>");
             	out.close();
             	*/
-            	response.sendRedirect("home.html");
-            	out.println("<h1>Please login first!</h1>");
+            	out.println("<script type=\"text/javascript\">"); 
+    			out.println("alert(\"No account is logged in, so cannot log out.\");");
+    			out.println("window.location.replace('home.html');");
+    			out.println("</script>");
+    			out.close(); 
             }
     }  
 }  

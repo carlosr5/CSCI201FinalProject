@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /AddServlet.class
 /ChatroomServerEndpoint.class
 /DetailsServlet.class
@@ -7,3 +8,9 @@
 /Register.class
 /User.class
 /UserDao.class
+=======
+/Globals.class
+/ChangeEmail.class
+/ChangePassword.class
+/MyRecipesServlet.class
+>>>>>>> f53c3252ef064e76e73bc07b62251f5f887013d3
