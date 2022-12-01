@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="ISO-8859-1">
-		<title>Login</title>
-		<link rel="stylesheet" href="general_stylesheet.css">
-		<style> 
-			body{
+<head>
+<meta charset="UTF-8">
+<title>Change Password</title>
+<link rel="stylesheet" href="general_stylesheet.css">
+<style>
+	body{
 				background-color:lightcyan;
 				font-size:20px;
 			}
@@ -29,11 +29,9 @@
 				font-size:20px;
 				border:none;
 			}
-		</style>
-		
+</style>
 </head>
 <body>
-	
 	<header>
 		<a id="ReSCipe" href="home.html"><strong>ReSCipe</strong></a>
 		<a class = "links" href="logout">Log out</a>
@@ -45,26 +43,23 @@
 	</header>
 	
 	<div align="center">
-        <h1>Welcome Back to Your Food Dreams!</h1>
-        <form action="login" method="post">
+        <h1>Enter your new email</h1>
+        <form action="ChangeEmail" method="post">
         	<div>
         		 <br/>
-	        	<label for="email">Email</label>
+	        	<label for="email">New Email</label>
 	            <input type="text" name="email" placeholder="Email" REQUIRED/>
         	</div>
         	<div>
-	            <label for="password">Password</label>
-	            <input type="password" name="password" placeholder="Password"REQUIRED/>
+	            <label for="email">Confirm Email</label>
+	            <input type="email" name="confirmEmail" placeholder="Confirm Email" REQUIRED/>
         	</div>
         	 <br/>
-            <input id="submit" type="submit" value="Login" />
+            <input id="submit" type="submit" value="Submit" />
             <br/>
-            <br/>
-	        <label>Don't have an account?</label>
-	        <a href="register.html">Sign Up Here</a>
-	        <br/>
 	        <br/>
         </form>
     </div>
+
 </body>
 </html>

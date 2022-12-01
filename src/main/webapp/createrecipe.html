@@ -1,0 +1,78 @@
+<html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Create A Recipe</title>
+	<link rel="stylesheet" href="general_stylesheet.css">
+	<style>
+		h1{
+			font-size: 50px;
+			text-align:center;
+		}
+		body{
+			font-size:20px;
+		}
+		#child{
+			text-align:center;
+			margin: 40px;
+		}
+		.recipe-steps{
+			background-color:linen;
+			width:750px;
+			height:250px;
+			margin-left:200px;
+			text-align:center;
+		}
+		#parent{
+			text-align:center;
+			margin: 60px;
+			background-color:peachpuff;
+		}
+		input{
+			width:600px;
+			height:200px;
+		}
+		
+	</style>
+</head>
+<body>
+	
+	<header>
+		<a id="ReSCipe" href="home.html"><strong>ReSCipe</strong></a>
+		<a class = "links" href="logout">Log out</a>
+		<a class = "links" href="register.html">Register</a>
+		<a class = "links" href="login.html">Login</a>
+		<a class = "links" href="profile">Profile</a>
+		<a class = "links" href="index.html">Chat Room</a>
+		<a class = "links" href="AddServlet">Create a Recipe</a>
+	</header>
+	<div id="parent">
+		<div id="child">
+			<br/>
+			<div class="recipe-steps"><br/>
+				<label for="recipe_name">Recipe Name</label><br/>
+    			<input type="text" name="recipe_name" REQUIRED/><br/>
+			</div>
+			<br/>
+			<div class="recipe-steps"><br/>
+				<label for="ingredients">Ingredients</label><br/>
+    			<input type="text" name="ingredients" REQUIRED/><br/>
+			</div>
+    		<br/>
+    		<div class="recipe-steps"><br/>
+    			<label for="description">Description</label><br/>
+    		<input type="text" name="description" REQUIRED/><br/>
+    		</div>
+    		<br/>
+    		<div class="recipe-steps"><br/>
+    			<label for="instructions">Description</label><br/>
+    			<input type="text" name="instrctions" REQUIRED/><br/>
+    		</div>
+    		
+    		<br/>
+		</div>
+	</div>
+	
+	
+</body>
+</html>

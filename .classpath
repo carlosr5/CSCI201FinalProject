@@ -14,5 +14,8 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="javax.websocket-api-1.1.jar"/>
+	<classpathentry kind="lib" path="mysql-connector-j-8.0.31.jar"/>
+	<classpathentry kind="lib" path="tomcat-servlet-api-9.0.4.jar"/>
+	<classpathentry kind="lib" path="javax.json-1.1.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
