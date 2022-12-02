@@ -56,6 +56,7 @@ public class MyRecipesServlet extends HttpServlet {
 		    		"<a class = \"links\" href=\"profile\">Profile</a>" + 
 		    		"<a class = \"links\" href=\"chatRoom\">Chat Room</a>" + 
 		    		"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" +
+                    "<a class = \"links\" href=\"MyRecipesServlet\">My Recipes</a>" +
 		    		"</header>\n");
 		
 		try {

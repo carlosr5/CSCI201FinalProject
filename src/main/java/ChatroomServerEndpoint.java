@@ -23,17 +23,27 @@ public class ChatroomServerEndpoint {
     @OnOpen
     public void handleOpen(Session userSession, @PathParam("username") String username) {
         users.add(userSession);
-        Iterator<Session> iter = users.iterator();
+
+        // Adding the user to the map if they're not there
         String username_val = (String) userSession.getUserProperties().get("username");
 
         try {
-            while (iter.hasNext()) {
-                iter.next().getBasicRemote().sendText(buildJsonUsersData());
-            }
             if (username_val == null) {
                 userSession.getUserProperties().put("username", username);
                 userSession.getBasicRemote()
                         .sendText(buildJsonMessageData("System", "You are now connected as " + username));
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Sending the users to the frontend to display all current users
+        Iterator<Session> iter = users.iterator();
+
+        try {
+            while (iter.hasNext()) {
+                iter.next().getBasicRemote().sendText(buildJsonUsersData());
             }
         } catch (IOException e) {
             e.printStackTrace();
