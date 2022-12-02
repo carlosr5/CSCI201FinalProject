@@ -1,35 +1,38 @@
 
 import java.sql.*;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+
+import java.io.IOException;  
+import java.io.PrintWriter;  
 import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServlet;  
+import javax.servlet.http.HttpServletRequest;  
+import javax.servlet.http.HttpServletResponse;  
+import javax.servlet.http.HttpSession;  
 
 @WebServlet("/allRecipes")
 public class allRecipes extends HttpServlet {
 
-    private static final long serialVersionUID = 1L;
-    // post
-    // when I click an item, make me a like "take me there" button which will go to
-    // Adit's servlet
-    // have recipe name, picture, and then have a button which has a link to adit's
-    // servlet where button carries information which is the name of the dish
+	private static final long serialVersionUID = 1L;
+	//post 
+	//when I click an item, make me a like "take me there" button which will go to Adit's servlet
+	//have recipe name, picture, and then have a button which has a link to adit's servlet where button carries information which is the name of the dish
+	
 
-     	final long serialVersionUID = 1L;
+	 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		 	final long serialVersionUID = 1L;
 			response.setContentType("text/html");
 			
+			PrintWriter out = response.getWriter(); 
+			 String docType =
+				       "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
 
-    	       "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
-
-			Connection conn 
-
-    
+			Connection conn = null;
+			Statement st = null;
+			ResultSet rs = null;
+			
 			String img = "";
 			String name = "";
 			String desc = "";
@@ -49,8 +52,6 @@ public class allRecipes extends HttpServlet {
 			    		"</header>\n");
 
 			try {
-    
-    
 				try {
 					Class.forName("com.mysql.cj.jdbc.Driver");
 				} catch (ClassNotFoundException e) {
@@ -94,6 +95,7 @@ public class allRecipes extends HttpServlet {
 					System.out.println(sqle.getMessage());
 				}
 			}
+			
 			result += "</body>" + 
 			         "</html>";
 			out.print(result);
