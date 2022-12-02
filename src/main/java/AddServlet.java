@@ -40,6 +40,9 @@ public class AddServlet extends HttpServlet {
 		} 
 		else
 		{
+			out.println("<script type=\"text/javascript\">"); 
+			out.println("window.location.replace('AddRecipe.html');");
+			out.println("</script>");
 			String name = request.getParameter("name");
 			String imageURL = request.getParameter("img");
 			String des = request.getParameter("des");
@@ -52,7 +55,7 @@ public class AddServlet extends HttpServlet {
 			Connection conn = null;
 			Statement st = null;
 			ResultSet rs = null;
-			int user = 1; 
+			int user = (int)session.getAttribute("UID"); 
 			try {
 				try {
 					Class.forName("com.mysql.cj.jdbc.Driver");

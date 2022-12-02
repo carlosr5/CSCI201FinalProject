@@ -40,16 +40,17 @@
 		<a class = "links" href="profile">Profile</a>
 		<a class = "links" href="chatRoom">Chat Room</a>
 		<a class = "links" href="AddRecipe.html">Create a Recipe</a>
-        <a class = "links" href="MyRecipesServlet">My Recipes</a>
+		<a class = "links" href="MyRecipesServlet">My Recipes</a>
+		<a class = "links" href="allRecipes">All Recipes</a>
 	</header>
 	
 	<div align="center">
         <h1>Enter your new email</h1>
-        <form action="ChangeEmail" method="post">
+        <form action="ChangeEmail" method="get">
         	<div>
         		 <br/>
 	        	<label for="email">New Email</label>
-	            <input type="text" name="email" placeholder="Email" REQUIRED/>
+	            <input type="email" name="email" placeholder="Email" REQUIRED/>
         	</div>
         	<div>
 	            <label for="email">Confirm Email</label>

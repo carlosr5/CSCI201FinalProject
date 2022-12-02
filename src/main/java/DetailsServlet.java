@@ -42,8 +42,8 @@ public class DetailsServlet extends HttpServlet {
 		String ingred = "";
 		String steps = "";
 		String img = "";
-		//String queryName = request.getParameter("name");
-		String queryName = "Cookies";
+		String queryName = request.getParameter("dishSelect");
+		//String queryName = "Cookies";
 
 		try {
 			try {
@@ -99,6 +99,7 @@ public class DetailsServlet extends HttpServlet {
 			    		"<a class = \"links\" href=\"chatRoom\">Chat Room</a>" + 
 			    		"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" +
                         "<a class = \"links\" href=\"MyRecipesServlet\">My Recipes</a>" + 
+			    		"<a class = \"links\" href=\"allRecipes\">All Recipes</a>" + 
 		    		"</header>\n" +
 		               "<h1 align = \"center\">" + queryName + "</h1>\n" +
 		               "<ul>\n" +

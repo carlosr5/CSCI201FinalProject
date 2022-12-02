@@ -37,19 +37,21 @@ public class allRecipes extends HttpServlet {
 			String name = "";
 //			String desc = "";
 			String result = new String(docType +
-			         "<html>\n" +
-			            "<head><title>My Recipes</title></head>\n" +
-			            "<link rel=\"stylesheet\" href=\"allRecipes.css\">" + 
-			            "<body bgcolor = \"#f0f0f0\">\n" +
-			            "<header>" + 
-				    		"<a id=\"ReSCipe\" href=\"home.html\"><strong>ReSCipe</strong></a>\n" + 
-				    		"<a class = \"links\" href=\"loggedout.html\">Log out</a>" +
-				    		"<a class = \"links\" href=\"register.html\">Register</a>" +
-				    		"<a class = \"links\" href=\"login.html\">Login</a>" + 
-				    		"<a class = \"links\" href=\"account.html\">Profile</a>" + 
-				    		"<a class = \"links\" href=\"chat.html\">Chat Room</a>" + 
-				    		"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" + 
-			    		"</header>\n");
+					"<html>\n" +
+		            "<head><title>My Recipes</title></head>\n" +
+		            "<link rel=\"stylesheet\" href=\"RecipeDetails.css\">" + 
+		            "<body bgcolor = \"#f0f0f0\">\n" +
+		            "<header>" + 
+		            "<a id=\"ReSCipe\" href=\"home.html\"><strong>ReSCipe</strong></a>\n" + 
+		    		"<a class = \"links\" href=\"logout\">Log out</a>" +
+		    		"<a class = \"links\" href=\"register.html\">Register</a>" +
+		    		"<a class = \"links\" href=\"login.html\">Login</a>" + 
+		    		"<a class = \"links\" href=\"profile\">Profile</a>" + 
+		    		"<a class = \"links\" href=\"chatRoom\">Chat Room</a>" + 
+		    		"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" +
+                    "<a class = \"links\" href=\"MyRecipesServlet\">My Recipes</a>" +
+                    "<a class = \"links\" href=\"allRecipes\">All Recipes</a>" + 
+		    		"</header>\n");
 
 			try {
 				try {
@@ -58,10 +60,10 @@ public class allRecipes extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				conn = DriverManager.getConnection("jdbc:mysql://localhost/allRecipes?user=root&password=Eiger123!!");
+				conn = DriverManager.getConnection("jdbc:mysql://localhost/recipemanager?user=" + Globals.user + "&password=" + Globals.pass);
 				st = conn.createStatement();
 				
-				rs = st.executeQuery("SELECT * FROM AllRecipes ;" );
+				rs = st.executeQuery("SELECT * FROM recipes ;" );
 				int counter = 0; 
 				while(rs.next()) {
 					img = rs.getString("image");

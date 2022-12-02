@@ -43,7 +43,12 @@ public class SearchServlet extends HttpServlet {
 
 
 		String searchName = request.getParameter("name");
-		String searchType = request.getParameter("type");
+		String searchType = request.getParameter("recipeType");
+		if(searchType != null)
+		{
+			searchType = searchType.toUpperCase();
+		}
+		System.out.println(searchName + " | " + searchType);
 		String rec_ing = "";
 		String img = "";
 		HttpSession session = request.getSession(false);
@@ -82,7 +87,7 @@ public class SearchServlet extends HttpServlet {
 
 			//if (ID != null && ID.length() > 0) { }
 
-			if(searchName == "")
+			if(searchName == null)
 			{
 				rs = st.executeQuery("SELECT * FROM recipes WHERE Type LIKE " + "'%" + searchType + "%';");
 			}
@@ -94,7 +99,7 @@ public class SearchServlet extends HttpServlet {
 				rec_ing = rs.getString("image");
 				String name = rs.getString("Name");
 				result += "<h1 align = \"center\">" + name + "</h1>\n" + "<ul>\n" +
-						   "<img src=\"" + img + "\" alt=\"" + name + "\"></b>\n" +  		            
+						   "<img src=\"" + rec_ing + "\" alt=\"" + name + "\"></b>\n" +  		            
 						   "</ul>\n";
 
 			}
