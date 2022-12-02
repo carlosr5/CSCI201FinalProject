@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReSCipes Chat Room</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="general_stylesheet.css">
+    <style>
+    	h1{
+			font-size: 50px;
+			text-align:center;
+		}
+		textarea{
+			width:700px;
+			margin-left:13%;
+		}
+		#messageText{
+			width:200px;
+			margin-left:35%;
+		}
+		p{
+			text-align: center;
+			font-size: 18px;
+		}
+		div{
+			background-color:peachpuff;
+			width:1000px;
+			padding:20px;
+			border-radius: 15px;
+			margin-left:15%;
+		}
+    </style>
+</head>
+
+<body>
+	<header>
+		<a id="ReSCipe" href="home.html"><strong>ReSCipe</strong></a>
+		<a class = "links" href="logout">Log out</a>
+		<a class = "links" href="register.html">Register</a>
+		<a class = "links" href="login.html">Login</a>
+		<a class = "links" href="profile">Profile</a>
+		<a class = "links" href="index.html">Chat Room</a>
+		<a class = "links" href="AddServlet">Create a Recipe</a>
+	</header>
+	
+	<br/>
+	<h1>Welcome to the Chat Room!</h1>
+	<br/>
+	<p>The ReSCipe chat room is a group chat exclusively for all ReSCipe users</p>
+	<p>It's the perfect place to chat about your favorite food and recipes!</p>
+	<br/>
+
+
+	<div>
+		<br/>
+    	<textarea id="messageTextBox" readonly="readonly" rows="10" cols="45"></textarea><br />
+    	<textarea id="usersTextArea" rows="10" cols="10" readonly="readonly"></textarea><br /><br />
+    	<input type="text" id="messageText">
+    	<input type="submit" value="Send" onclick="sendMessage()">
+    </div>
+    
+    <br/>
+    <br/>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="js/chatClient.js"></script>
+
+</html>

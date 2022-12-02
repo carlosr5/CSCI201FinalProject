@@ -5,16 +5,20 @@
 <meta charset="UTF-8">
 <title>Add a Recipe</title>
 <link rel="stylesheet" href="AddRecipe.css">
+<link rel="stylesheet" href="general_stylesheet.css">
+
 </head>
 
 <body>
-	<div class="header">
-
-	  ReSCipe
-	  <a href="homepage.htm" class="nav-link">HOME</a>
-	  <a href="myRecipes.htm" class="nav-link">My Recipes</a>
-	  <a href="Login.htm" class="nav-link">Log In</a>
-	</div>
+	<header>
+		<a id="ReSCipe" href="home.html"><strong>ReSCipe</strong></a>
+		<a class = "links" href="logout">Log out</a>
+		<a class = "links" href="register.html">Register</a>
+		<a class = "links" href="login.html">Login</a>
+		<a class = "links" href="profile">Profile</a>
+		<a class = "links" href="index.html">Chat Room</a>
+		<a class = "links" href="AddServlet">Create a Recipe</a>
+	</header>
  	<h1>Add Your Recipe</h1>
  
 	
@@ -25,8 +29,7 @@
 				Recipe Name: <input type="text" name="name" required/><br/>
 				Description: <input type="text" name="des" required/><br/>
 				
-				<label for="img">Upload Recipe Image:</label><br>
-		  		<input type="file" id="img" name="img" accept="image/*"><br>
+				Image URL: <input type="text" name="img" required/><br/>
 		  		
 				<input type="radio" id="baked" name="dishType" value="BAKED">
 				<label for="baked">Baked</label><br>

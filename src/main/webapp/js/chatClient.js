@@ -1,6 +1,19 @@
 // This file should just receive the messages from the server and output a batch of messages to the client
+let params = new URLSearchParams(location.search);
+let username = params.get('username');
+let socket = new WebSocket("ws://localhost:8080/CSCI201_Final_Project/chatroomServerEndpoint/" + username);
 
-let socket = new WebSocket("ws://localhost:8080/CSCI201_Final_Project/chatroomServerEndpoint");
+// Listening for the web socket to open
+socket.addEventListener('open', (e) => {
+    console.log(e);
+    console.log(location.href);
+    console.log(location.search);
+
+    // let params = new URLSearchParams(location.search);
+    // console.log(params.get('username'));
+
+    // let username = params.get('username');
+});
 
 // Listening for a message to be sent from the client
 socket.addEventListener('message', (message) => {

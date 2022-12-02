@@ -1,25 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReSCipes!</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Home Page</title>
+		
+		<link rel="stylesheet" href="general_stylesheet.css">
+		<style>
+			/*search bar*/
+			.search input[type=text]{
+				width:430px;
+				height:48px;
+				border-radius: 15px;
+				padding: 10px;
+				margin-top: 85px;
+				margin-left: 400px;
+				font-size:30px;
+				border: 1px solid black;
+				position:static;
+            	text-align:left;
+			}
+			.search input[type=image]{
+				width:85px;
+				margin-top: -80px;
+				margin-left:870px;
+				z-index:999;
+			}
+			body{
+				font-size:26px;
+			}
+			form{
+				margin-top:-7%;
+			}
+			input{
+				font-size:25px;
+				margin:5px;
+				padding:5px;
+			}
+			input[type=submit]{
+				padding:5px;
+			}
+			#submit{
+				margin:30px;
+				padding:10px;
+				width:300px;
+			}
+			#searchRecipe{
+				margin-top:-5%;
+			}
+			
+		</style>
+	</head>
 
 <body>
-    <textarea id="messageTextBox" readonly="readonly" rows="10" cols="45"></textarea><br />
-    <textarea id="usersTextArea" rows="10" cols="10" readonly="readonly"></textarea><br /><br />
-    <input type="text" id="messageText">
-    <input type="submit" value="Send" onclick="sendMessage()">
+	<header>
+		<a id="ReSCipe" href="home.html"><strong>ReSCipe</strong></a>
+		<a class = "links" href="logout">Log out</a>
+		<a class = "links" href="register.html">Register</a>
+		<a class = "links" href="login.html">Login</a>
+		<a class = "links" href="profile">Profile</a>
+		<a class = "links" href="index.html">Chat Room</a>
+		<a class = "links" href="AddServlet">Create a Recipe</a>
+	</header>
+
+	<br><br><br><br><br><br>
+<form method="post" name="frm" action="search">
+<table border="0" width="500" align="center" bgcolor="lightcyan">
+<tr><td colspan=2 style="font-size:26pt" align="center">
+<h3 id="searchRecipe">Search Recipes</h3></td></tr>
+<tr><td ><b>Recipe Name</b></td>
+<td>: <input  type="text" name="recipe_name" id="recipe_name">
+</td></tr>
+<tr><td ><b>Ingredients</b></td>
+<td>: <input  type="text" name="ingredients" id="ingredients">
+</td></tr>
+
+<tr><td colspan=2 align="center" style="font-size:20pt">
+<input  type="submit" name="submit" id="submit" value="Search"></td></tr>
+</table>
+</form>
+	
+	<!-- <div class = "search">
+		<input type="text" placeholder=" Search">
+		<input type="image" src="https://www.nicepng.com/png/detail/263-2631744_circle-icons-magnifyingglass-magnifying-glass-icon-flat.png" border="0" alt="Submit" />
+	</div> -->
 </body>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-<script src="js/chatClient.js"></script>
-
 </html>
