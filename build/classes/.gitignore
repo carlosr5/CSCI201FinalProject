@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /AddServlet.class
 /ChangeEmail.class
 /ChangePassword.class
@@ -11,3 +12,8 @@
 /Register.class
 /User.class
 /UserDao.class
+=======
+/ChatUserServlet.class
+/SearchServlet.class
+/MyRecipesServlet.class
+>>>>>>> 30f62d5e8e12fca0e3989730acff324fac577c29

@@ -2,6 +2,7 @@
 
 /*Navigation Bar*/
 header{
+	font-family: serif;
 	background-color: peachpuff;
 	overflow: hidden;
 	margin: 0px;
@@ -30,4 +31,5 @@ header .links:hover{
 /*General background*/
 body{
 	background-color: lightcyan;
+	
 }

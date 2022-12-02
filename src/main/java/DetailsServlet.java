@@ -92,11 +92,11 @@ public class DetailsServlet extends HttpServlet {
 		            "<body bgcolor = \"#f0f0f0\">\n" +
 		            "<header>" + 
 			    		"<a id=\"ReSCipe\" href=\"home.html\"><strong>ReSCipe</strong></a>\n" + 
-			    		"<a class = \"links\" href=\"loggedout.html\">Log out</a>" +
+			    		"<a class = \"links\" href=\"logout\">Log out</a>" +
 			    		"<a class = \"links\" href=\"register.html\">Register</a>" +
 			    		"<a class = \"links\" href=\"login.html\">Login</a>" + 
-			    		"<a class = \"links\" href=\"account.html\">Profile</a>" + 
-			    		"<a class = \"links\" href=\"chat.html\">Chat Room</a>" + 
+			    		"<a class = \"links\" href=\"profile\">Profile</a>" + 
+			    		"<a class = \"links\" href=\"chatRoom\">Chat Room</a>" + 
 			    		"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" + 
 		    		"</header>\n" +
 		               "<h1 align = \"center\">" + queryName + "</h1>\n" +
