@@ -77,7 +77,21 @@
 <input  type="submit" name="submit" id="submit" value="Search"></td></tr>
 </table>
 </form>
-	
+<tr><td>
+<form id="cookingType" method="get" name="search" action="SearchServlet">
+<table border="0" width="500" align="center" bgcolor="lightcyan">
+<p id="cookingSearch"><b>Search by Cooking Type</b></p>
+
+<tr><td colspan=2 align="center" style="font-size:20pt">
+<tr><td><td>
+<input type="radio" class="recipeType" name="recipeType" value="cooked">
+� <label for="cooked">Cooked</label><br>
+<tr><td><td>
+<input type="radio" class="recipeType" name="recipeType" value="baked">
+� <label for="baked">Baked</label><br>
+<input  type="submit" name="submit" class="submit" value="Search"></td></tr>
+</table>
+</form>	
 	<!-- <div class = "search">
 		<input type="text" placeholder=" Search">
 		<input type="image" src="https://www.nicepng.com/png/detail/263-2631744_circle-icons-magnifyingglass-magnifying-glass-icon-flat.png" border="0" alt="Submit" />

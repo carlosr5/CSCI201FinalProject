@@ -61,6 +61,7 @@ public class Register extends HttpServlet {
 			result = udao.registerUser(user);
 			if(result)
 			{
+				Email.sendEmail(email);
 				response.sendRedirect("registered.html");
 			}
 			else

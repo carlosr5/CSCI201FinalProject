@@ -55,6 +55,7 @@ public class Login extends HttpServlet {
 			session.setAttribute("firstName", matchUsers.get(0).getFirst());
 			session.setAttribute("lastName", matchUsers.get(0).getLast());
 			session.setAttribute("UID", matchUsers.get(0).getUID());
+			
 			response.sendRedirect("profile");
 		}
 		else
@@ -68,4 +69,5 @@ public class Login extends HttpServlet {
 			out.close();
 		}			
 	}
+	 
 }
