@@ -18,7 +18,7 @@ public class Logout extends HttpServlet {
                                 throws ServletException, IOException {  
             //response.setContentType("text/html");  
             //request.getRequestDispatcher("link.html").include(request, response);  
-            System.out.println("Logging Out");
+            //System.out.println("Logging Out");
             PrintWriter out = response.getWriter();
             HttpSession session=request.getSession(false);
             if(session != null)

@@ -43,6 +43,7 @@ public class SearchServlet extends HttpServlet {
 
 
 		String searchName = request.getParameter("name");
+		String searchType = request.getParameter("type");
 		String rec_ing = "";
 		String img = "";
 		HttpSession session = request.getSession(false);
@@ -80,8 +81,14 @@ public class SearchServlet extends HttpServlet {
 
 			//if (ID != null && ID.length() > 0) { }
 
-
-			rs = st.executeQuery("SELECT * FROM recipes WHERE Name = " + "'" + searchName + "';");	
+			if(searchName == "")
+			{
+				rs = st.executeQuery("SELECT * FROM recipes WHERE Type = " + "'" + searchType + "';");
+			}
+			else
+			{				
+				rs = st.executeQuery("SELECT * FROM recipes WHERE Name = " + "'" + searchName + "';");					
+			}
 			while (rs.next()) {
 				rec_ing = rs.getString("image");
 				String name = rs.getString("Name");
