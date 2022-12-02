@@ -25,6 +25,40 @@
 				margin-left:870px;
 				z-index:999;
 			}
+			body{
+				font-size:26px;
+			}
+			form{
+				margin-top:-7%;
+			}
+			input{
+				font-size:25px;
+				margin:5px;
+				padding:5px;
+			}
+			input[type=submit]{
+				padding:5px;
+			}
+			.submit{
+				margin:25px;
+				padding:3px;
+				width:180px;
+				background:peachpuff;
+				border-radius:15px;
+			}
+			#searchRecipe{
+				margin-top:-5%;
+			}
+			#cookingType{
+				margin-left:20%;
+				margin-top:5%;
+			}
+			#cookingSearch{
+				margin-left:16%;
+				font-size:20pt;
+			}
+			
+			
 			
 		</style>
 	</head>
@@ -38,21 +72,39 @@
 		<a class = "links" href="profile">Profile</a>
 		<a class = "links" href="chatRoom">Chat Room</a>
 		<a class = "links" href="AddRecipe.html">Create a Recipe</a>
-        <a class = "links" href="MyRecipesServlet">My Recipes</a>
+        <a class="links" href="MyRecipesServlet">My Recipes</a>
 	</header>
 
 	<br><br><br><br><br><br>
-<form method="get" name="frm" action="SearchServlet">
-<table border="0" width="300" align="center" bgcolor="#CDFFFF">
-<tr><td colspan=2 style="font-size:12pt" align="center">
-<h3>Search Recipe</h3></td></tr>
+<form method="get" name="search" action="SearchServlet">
+<table border="0" width="500" align="center" bgcolor="lightcyan">
+<tr><td colspan=2 style="font-size:26pt" align="center">
+<h3 id="searchRecipe">Search Recipe</h3></td></tr>
 <tr><td ><b>Recipe Name</b></td>
 <td>: <input  type="text" name="name" id="name">
-</td></tr>
-<tr><td colspan=2 align="center">
-<input  type="submit" name="submit" value="Search"></td></tr>
+<tr><td>
+
+<tr><td colspan=2 align="center" style="font-size:20pt">
+<input  type="submit" name="submit" class="submit" value="Search"></td></tr>
 </table>
 </form>
+
+<tr><td>
+<form id="cookingType" method="get" name="search" action="SearchServlet">
+<table border="0" width="500" align="center" bgcolor="lightcyan">
+<p id="cookingSearch"><b>Search by Cooking Type</b></p>
+
+<tr><td colspan=2 align="center" style="font-size:20pt">
+<tr><td><td>
+<input type="radio" class="recipeType" name="recipeType" value="cooked">
+<label for="cooked">Cooked</label><br>
+<tr><td><td>
+<input type="radio" class="recipeType" name="recipeType" value="baked">
+<label for="baked">Baked</label><br>
+<input  type="submit" name="submit" class="submit" value="Search"></td></tr>
+</table>
+</form>
+
 
 	
 	<!-- <div class = "search">
