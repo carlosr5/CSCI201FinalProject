@@ -35,7 +35,7 @@ public class allRecipes extends HttpServlet {
 			
 			String img = "";
 			String name = "";
-			String desc = "";
+//			String desc = "";
 			String result = new String(docType +
 			         "<html>\n" +
 			            "<head><title>My Recipes</title></head>\n" +
@@ -62,19 +62,28 @@ public class allRecipes extends HttpServlet {
 				st = conn.createStatement();
 				
 				rs = st.executeQuery("SELECT * FROM AllRecipes ;" );
+				int counter = 0; 
 				while(rs.next()) {
 					img = rs.getString("image");
 					name = rs.getString("name");
-					desc = rs.getString("description");
-					
-					result += "<h1 align = \"center\">" + desc + "</h1>\n" +
+					counter++;
+//					desc = rs.getString("description");
+					//will all be wrapped in the form and then from there you make the button and 
+					//make a form where input type text is just a button
+					//
+					result += "<h1 align = \"center\">" + name + "</h1>\n" +
 							   "<ul>\n" +
 							   "<img src=\"" + img + "\" alt=\"" + name + "\"></b>\n" +  		            
-							   "</ul>\n" +  "<button id=\"recipe_button\" onclick=\"https://w3docs.com\">" + 
-							      "View Recipe" +
-							     " </button> ";
-						
+							   "</ul>\n" +  "<form name=\"DetailsServlet\" method=\"GET\" action=\"DetailsServlet\">\n"
+							   		+ "<input type=\"radio\" id=\"valueOf(counter)\" name=\"dishSelect\" value=\"" + name + "\">\n"
+							   		+ "<label for=\"valueOf(counter)\">" + name + "</label><br>";
+							;
+					
+					
+					
+					
 				}
+				//the link should be able to relay the name of the recipe being selected to the servlet
 	
 			
 			} catch (SQLException sqle) {
@@ -96,7 +105,7 @@ public class allRecipes extends HttpServlet {
 				}
 			}
 			
-			result += "</body>" + 
+			result += "<input type=\"submit\" name=\"submit\" value=\"Submit\" />\n" + "</form>\n" + "</body>" + 
 			         "</html>";
 			out.print(result);
 			 out.flush();
