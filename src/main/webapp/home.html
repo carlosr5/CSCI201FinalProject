@@ -35,21 +35,18 @@
 		<a class = "links" href="logout">Log out</a>
 		<a class = "links" href="register.html">Register</a>
 		<a class = "links" href="login.html">Login</a>
-		<a class = "links" href="userprofile.html">Profile</a>
-		<a class = "links" href="index.html">Chat Room</a>
+		<a class = "links" href="profile">Profile</a>
+		<a class = "links" href="chatRoom">Chat Room</a>
 		<a class = "links" href="AddRecipe.html">Create a Recipe</a>
 	</header>
 
 	<br><br><br><br><br><br>
-<form method="post" name="frm" action="MyRecipesServlet">
+<form method="get" name="frm" action="SearchServlet">
 <table border="0" width="300" align="center" bgcolor="#CDFFFF">
 <tr><td colspan=2 style="font-size:12pt" align="center">
 <h3>Search Recipe</h3></td></tr>
 <tr><td ><b>Recipe Name</b></td>
 <td>: <input  type="text" name="name" id="name">
-</td></tr>
-<tr><td ><b>Ingredients</b></td>
-<td>: <input  type="text" name="rec_ing" id="rec_ing">
 </td></tr>
 <tr><td colspan=2 align="center">
 <input  type="submit" name="submit" value="Search"></td></tr>
@@ -60,5 +57,6 @@
 		<input type="text" placeholder=" Search">
 		<input type="image" src="https://www.nicepng.com/png/detail/263-2631744_circle-icons-magnifyingglass-magnifying-glass-icon-flat.png" border="0" alt="Submit" />
 	</div> -->
+
 </body>
 </html>
