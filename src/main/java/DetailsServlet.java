@@ -97,7 +97,8 @@ public class DetailsServlet extends HttpServlet {
 			    		"<a class = \"links\" href=\"login.html\">Login</a>" + 
 			    		"<a class = \"links\" href=\"profile\">Profile</a>" + 
 			    		"<a class = \"links\" href=\"chatRoom\">Chat Room</a>" + 
-			    		"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" + 
+			    		"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" +
+                        "<a class = \"links\" href=\"MyRecipesServlet\">My Recipes</a>" + 
 		    		"</header>\n" +
 		               "<h1 align = \"center\">" + queryName + "</h1>\n" +
 		               "<ul>\n" +

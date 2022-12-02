@@ -66,6 +66,7 @@ public class SearchServlet extends HttpServlet {
 		    		"<a class = \"links\" href=\"profile\">Profile</a>" + 
 		    		"<a class = \"links\" href=\"chatRoom\">Chat Room</a>" + 
 		    		"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" +
+                    "<a class = \"links\" href=\"MyRecipesServlet\">My Recipes</a>" +
 		    		"</header>\n");
 
 
@@ -83,11 +84,11 @@ public class SearchServlet extends HttpServlet {
 
 			if(searchName == "")
 			{
-				rs = st.executeQuery("SELECT * FROM recipes WHERE Type = " + "'" + searchType + "';");
+				rs = st.executeQuery("SELECT * FROM recipes WHERE Type LIKE " + "'%" + searchType + "%';");
 			}
 			else
 			{				
-				rs = st.executeQuery("SELECT * FROM recipes WHERE Name = " + "'" + searchName + "';");					
+				rs = st.executeQuery("SELECT * FROM recipes WHERE Name LIKE " + "'%" + searchName + "%';");					
 			}
 			while (rs.next()) {
 				rec_ing = rs.getString("image");
