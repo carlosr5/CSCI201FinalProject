@@ -14,36 +14,46 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Servlet implementation class DetailsServlet
  */
-@WebServlet("/MyRecipesServlet")
-public class MyRecipesServlet extends HttpServlet {
+@WebServlet("/SearchServlet")
+public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
-//    public AddServlet() {
-//        super();
-//        // TODO Auto-generated constructor stub
-//    }
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    
-		response.setContentType("text/html");
-	      
-	    PrintWriter out = response.getWriter();
-	    String docType =
-			       "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
 
-	    
+	//    public AddServlet() {
+	//        super();
+	//        // TODO Auto-generated constructor stub
+	//    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		response.setContentType("text/html");
+
+		PrintWriter out = response.getWriter();
+		String docType =
+				"<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
+
+
 		Connection conn = null;
 		Statement st = null;
 		ResultSet rs = null;
-		
+
+
+		String searchName = request.getParameter("name");
+		String searchType = request.getParameter("type");
+		String rec_ing = "";
 		String img = "";
-		String name = "";
-		String ID = "1";
-		
-	    String result = new String(docType +
+		HttpSession session = request.getSession(false);
+		int ID = -1;
+		if(session != null)
+		{
+			ID = (int)session.getAttribute("UID");
+		}
+
+		String result = new String(docType +
 		         "<html>\n" +
 		            "<head><title>My Recipes</title></head>\n" +
 		            "<link rel=\"stylesheet\" href=\"RecipeDetails.css\">" + 
@@ -58,7 +68,8 @@ public class MyRecipesServlet extends HttpServlet {
 		    		"<a class = \"links\" href=\"AddRecipe.html\">Create a Recipe</a>" +
                     "<a class = \"links\" href=\"MyRecipesServlet\">My Recipes</a>" +
 		    		"</header>\n");
-		
+
+
 		try {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
@@ -66,51 +77,57 @@ public class MyRecipesServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/RecipeManager?user=root&password=RamTiger25");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/recipemanager?user=" + Globals.user + "&password=" + Globals.pass);
 			st = conn.createStatement();
-				
+
 			//if (ID != null && ID.length() > 0) { }
-				
-			
-			rs = st.executeQuery("SELECT * FROM AllRecipes WHERE AllRecipes.ID = " + "'" + ID + "';");	
-			while (rs.next()) {
-				img = rs.getString("image");
-				name = rs.getString("name");
-				result +=  "<h1 align = \"center\">" + name + "</h1>\n" +
-					   "<ul>\n" +
-					   "<img src=\"" + img + "\" alt=\"" + name + "\"></b>\n" +  		            
-					   "</ul>\n"; 
-				
+
+			if(searchName == "")
+			{
+				rs = st.executeQuery("SELECT * FROM recipes WHERE Type LIKE " + "'%" + searchType + "%';");
 			}
-		   
-		} catch (SQLException sqle) {
-			System.out.println(sqle.getMessage());
+			else
+			{				
+				rs = st.executeQuery("SELECT * FROM recipes WHERE Name LIKE " + "'%" + searchName + "%';");					
+			}
+			while (rs.next()) {
+				rec_ing = rs.getString("image");
+				String name = rs.getString("Name");
+				result += "<h1 align = \"center\">" + name + "</h1>\n" + "<ul>\n" +
+						   "<img src=\"" + img + "\" alt=\"" + name + "\"></b>\n" +  		            
+						   "</ul>\n";
+
+			}
+
 			
-		} finally {
-			try {
-				if (rs != null) {
-					rs.close();
-				}
-				if (st != null) {
-					st.close();
-				}
-				if (conn != null) {
-					conn.close();
-				}
 			} catch (SQLException sqle) {
 				System.out.println(sqle.getMessage());
-			}
-		}
-      
-		result += "</body>" + 
-	         "</html>";
-	    out.print(result);
-		  out.flush();
-		  out.close();
-		
-	}
 
-}
+			} finally {
+				try {
+					if (rs != null) {
+						rs.close();
+					}
+					if (st != null) {
+						st.close();
+					}
+					if (conn != null) {
+						conn.close();
+					}
+				} catch (SQLException sqle) {
+					System.out.println(sqle.getMessage());
+				}
+			}
+
+			result += "</body>" + 
+		         "</html>";
+		    out.print(result);
+			out.flush();
+			out.close();
+
+		}
+
+	}
 
 
 
